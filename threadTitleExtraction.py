@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-目的: 2ch検索のページから、スレッドのタイトルだけを抽出する
+目的: 5ch検索のページから、スレッドのタイトルだけを抽出する
 """
 def extraction():
     import requests
@@ -32,3 +32,17 @@ def extraction():
     
     #print(textLists)
     return textLists
+
+def reshapeToStrings(List):
+    textStrings = ""
+    for i in range(len(List)):
+        textStrings += (List[i] + "　　　　　　")
+    
+    return textStrings
+
+"""    
+textLists = extraction()   
+textStrings = reshapeToStrings(textLists)   
+print(textStrings)
+"""
+    

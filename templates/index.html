@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Flask - paiza</title>
+        <style>body {padding: 10px}</style>
+    </head>
+    <body>
+        {% if name_value %}
+            <h1>Hello {{ name_value }}</h1>
+        {% else %}
+            <p>Hello paiza!</p>
+            <p>{{ players }}</p>
+        {% endif %}
+    </body>
+</html>
+
