@@ -10,7 +10,7 @@ def show():
     
     # 表示する形の一つの文字列に変形する
     textStrings = threadTitleExtraction.reshapeToStrings(textLists)
-    return render_template("form.html", textStrings = textStrings)
+    return render_template("scrollNews.html", textStrings = textStrings)
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
