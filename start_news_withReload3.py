@@ -1,12 +1,26 @@
 from flask import Flask, request, render_template
 app = Flask(__name__)
 import threadTitleExtraction
+import yahooNewsTopicExtraction
+import random
+
+def makeNewsList():
+    # スレッドタイトルを抜きだしてくる
+    textLists_5ch = threadTitleExtraction.extraction()
+    
+    # yahooニュースのタイトルを抜き出してくる
+    textLists_yahoo = yahooNewsTopicExtraction.extraction()
+    
+    # 抜き出してきたリストを統合して、順番をランダムで入れ替える
+    textLists = textLists_5ch + textLists_yahoo
+    random.shuffle(textLists)
+    
+    return textLists
 
 @app.route("/")
 def show():
     message = "Hello World"
-    # スレッドタイトルを抜きしてくる
-    textLists = threadTitleExtraction.extraction()
+    textLists = makeNewsList()
     
     # 表示する形の一つの文字列に変形する
     textStrings = threadTitleExtraction.reshapeToStrings(textLists)
@@ -14,17 +28,15 @@ def show():
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
-    # スレッドタイトルを抜きだしてくる
-    textLists = threadTitleExtraction.extraction()
+    textLists = makeNewsList()
     
     # 表示する形の一つの文字列に変形する
     textStringsUpdate = threadTitleExtraction.reshapeToStrings(textLists)
-    """
-    if request.method == "POST":
-        article = request.form["article"]
-        name = request.form["name"]
-    else:
-        article = request.args.get("article")
-        name = request.args.get("name")
-    """
     return render_template("scrollNews.html", textStrings = textStringsUpdate)
+
+"""
+textLists = makeNewsList()
+print(textLists)
+textStrings = threadTitleExtraction.reshapeToStrings(textLists)
+print(textStrings)
+"""
