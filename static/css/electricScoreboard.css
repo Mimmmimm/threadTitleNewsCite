@@ -3,7 +3,7 @@
     position: relative;
     padding:5px 0;
     color: #FFB400;
-    font-size: 60px;
+    font-size: 10px; /* 初期値は60だった */
     font-weight: bold;
     background: #333333;
 }
@@ -17,8 +17,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: linear-gradient(#0a0600 1px, transparent 0px), linear-gradient(0, #0a0600 1px, transparent 0.1px);
-	background-image: -webkit-linear-gradient(#0a0600 1px, transparent 0px), -webkit-linear-gradient(0, #0a0600 1px, transparent 0.1px);
+    background-image: linear-gradient(#0a0600 0.1px, transparent 0px), linear-gradient(0, #0a0600 0.1px, transparent 0.1px);
+	background-image: -webkit-linear-gradient(#0a0600 0.1px, transparent 0px), -webkit-linear-gradient(0, #0a0600 0.1px, transparent 0.1px);
 	background-size: 2px 2px;
     z-index: 10;
 }
