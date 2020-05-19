@@ -2,7 +2,7 @@
     overflow: hidden;
     position: relative;
     padding:6px 1;
-    color: #FFB400;
+    color: #FF7400; /* 初期値は #FFB400 だった */
     font-size: 10px; /* 初期値は60だった */
     font-weight: bold;
     background: #333333;
